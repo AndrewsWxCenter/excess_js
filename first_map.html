@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-nc-all.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/pattern-fill.js"></script>
+
+<style>
+#map123 {
+    height: 800px; 
+    min-width: 0px; 
+    max-width: 1776px; 
+    margin: 0 auto; 
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+</style>
+
+
+<div id="map123"></div>
+
+
+<script>
+// Initiate the chart
+Highcharts.mapChart('map123', {
+    chart: {
+        map: 'countries/us/us-nc-all'
+    },
+
+    title: {
+        text: 'Highmaps basic lat/lon demo'
+    },
+
+    mapNavigation: {
+        enabled: true
+    },
+
+    tooltip: {
+        headerFormat: '',
+        pointFormat: '<b>{point.name}</b><br>Lat: {point.lat}, Lon: {point.lon}'
+    },
+
+    series: [{
+        // Use the gb-all map with no data as a basemap
+        name: 'Basemap',
+        borderColor: '#A0A0A0',
+        nullColor: 'rgba(200, 200, 200, 0.3)',
+        showInLegend: false
+    }, {
+        name: 'Separators',
+        type: 'mapline',
+        nullColor: '#707070',
+        showInLegend: false,
+        enableMouseTracking: false
+    }, {
+        // Specify points using lat/lon
+        type: 'mappoint',
+        name: 'Cities',
+        color: Highcharts.getOptions().colors[1],
+        data: [{
+            name: 'KAVL',
+            lat: 35.432,
+            lon: -82.537
+        }, {
+            name: 'KHKY',
+            lat: 35.742,
+            lon: -81.382
+        }, {
+            name: 'KAKH',
+            lat: 35.197,
+            lon: -81.155
+        }, {
+            name: 'KCLT',
+            lat: 35.213,
+            lon: -80.949
+        }, {
+            name: 'KEQY',
+            lat: 35.017,
+            lon: -80.621
+        }, {
+            name: 'KINT',
+            lat: 36.133,
+            lon: -80.225
+        }, {
+            name: 'KGSO',
+            lat: 36.098,
+            lon: -79.944
+        }, {
+            name: 'KBUY',
+            lat: 36.048,
+            lon: -79.474
+        }, {
+            name: 'KMEB',
+            lat: 34.791,
+            lon: -79.368
+        }, {
+            name: 'KFAY',
+            lat: 34.989,
+            lon: -78.880
+        }, {
+            name: 'KRDU',
+            lat: 35.892,
+            lon: -78.782
+        }, {
+            name: 'KILM',
+            lat: 34.267,
+            lon: -77.900
+        }, {
+            name: 'KRWI',
+            lat: 35.855,
+            lon: -77.893
+        }, {
+            name: 'KEWN',
+            lat: 35.068,
+            lon: -77.047
+        }, {
+            name: 'KMRH',
+            lat: 34.733,
+            lon: -76.657
+        }, {
+            name: 'KECG',
+            lat: 36.258,
+            lon: -76.172
+        }, {
+            name: 'KHSE',
+            lat: 35.232,
+            lon: -75.623,
+            dataLabels: {
+                align: 'left',
+                x: 5,
+                verticalAlign: 'middle'
+            }
+        }]
+    }]
+});
+</script>
+
+
+
+
+
+
